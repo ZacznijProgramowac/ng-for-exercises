@@ -2,8 +2,8 @@
 
 <h2>1. Wypisz tablicę 'frameworsk' za pomocą *ngFor i dodaj index:</h2>
 <ul>
-  <li>
-    uzupełnij
+  <li *ngFor="let framework of frameworks; let i = index">
+    {{ i + 1 }}. {{ framework }}
   </li>
 </ul>
 
@@ -11,7 +11,7 @@
 
 <h2>2. Wypisz model i markę samochodu z tablicy 'cars' za pomocą *ngFor:</h2>
 <ul>
-  <li>uzupełnij</li>
+  <li *ngFor="let car of cars">{{ car.mark }} - {{ car.model }}</li>
 </ul>
 
 <br />
@@ -21,8 +21,8 @@
   keyvalue:
 </h2>
 <ul>
-  <li>
-    uzupełnij
+  <li *ngFor="let car of carsObj | keyvalue">
+    {{ car.key }} - {{ car.value }}
   </li>
 </ul>
 
@@ -33,9 +33,11 @@
   należy użyć *ngIf:
 </h2>
 <ul>
-  <ng-container>
-    <li>uzupełnij</li>
-    <li>uzupełnij</li>
+  <ng-container
+    *ngFor="let framework of frameworks; let first = first; let last = last"
+  >
+    <li *ngIf="first">{{ framework }}</li>
+    <li *ngIf="last">{{ framework }}</li>
   </ng-container>
 </ul>
 
@@ -44,8 +46,10 @@
   Dodatkowo należy użyć *ngIf (jeżeli już wiesz jak używać):
 </h2>
 <ul>
-  <ng-container>
-    <li>uzupełnij</li>
+  <ng-container
+    *ngFor="let framework of frameworks; let even = even; let i = index"
+  >
+    <li *ngIf="even">{{ i }} - {{ framework }}</li>
   </ng-container>
 </ul>
 
@@ -54,7 +58,7 @@
   company name:
 </h2>
 <ul>
-  <li>
-    uzupełnij
+  <li *ngFor="let p of persons">
+    {{ p.id }} - {{ p.name }} - {{ p?.address?.city }} - {{ p?.company?.name }}
   </li>
 </ul>
